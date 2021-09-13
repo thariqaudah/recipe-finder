@@ -1,38 +1,41 @@
 <template>
-  <div class="container">
-    <div v-if="recipes.length">
-      <h1 class="my-2">Food List</h1>
-      <div class="recipes">
-        <div
-          class="bg-white p-1"
-          v-for="recipe in recipes"
-          :key="recipe.recipe.yield"
-        >
-          <div class="img">
-            <img :src="recipe.recipe.image" alt="food image" />
-          </div>
-          <h2 class="my-1">
-            {{ recipe.recipe.label }}
-          </h2>
-          <router-link to="" class="btn btn-dark">Details</router-link>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="recipes" v-if="recipes.length">
+			<div
+				class="bg-white p-1"
+				v-for="recipe in recipes"
+				:key="recipe.recipe.yield"
+			>
+				<div class="img">
+					<img :src="recipe.recipe.image" alt="food image" />
+				</div>
+				<h2 class="my-1">
+					{{ recipe.recipe.label }}
+				</h2>
+				<router-link to="" class="btn btn-dark">Details</router-link>
+			</div>
+		</div>
+		<div v-if="alert">
+			<Alert :text="alert.text" :type="alert.type" />
+		</div>
+	</div>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import Alert from './Alert.vue'
 
 export default {
-  name: 'Recipes',
-  setup() {
-    const store = useStore()
+	name: 'Recipes',
+	components: { Alert },
+	setup() {
+		const store = useStore()
 
-    const recipes = computed(() => store.state.recipes.recipes)
+		const recipes = computed(() => store.state.recipes.recipes)
+		const alert = computed(() => store.state.recipes.alert)
 
-    return { recipes }
-  },
+		return { recipes, alert }
+	},
 }
 </script>
