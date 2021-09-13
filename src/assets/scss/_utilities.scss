@@ -1,0 +1,156 @@
+// Container
+.container {
+  max-width: $max-width;
+  margin: 3rem auto 0;
+}
+
+// Font size
+.fs-xl {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.fs-lg {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+// Text color
+.text {
+  &-primary {
+    color: $primary-color;
+  }
+  &-dark {
+    color: $dark-color;
+  }
+  &-light {
+    color: $light-color;
+  }
+  &-success {
+    color: $success-color;
+  }
+  &-danger {
+    color: $danger-color;
+  }
+}
+
+// Backgrounds
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+    border: 1px solid #eee;
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-white {
+    @include set-background(#fff);
+    border: 1px solid #eee;
+  }
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  border: none;
+  outline: none;
+  padding: 0.4rem 1.2rem;
+  text-align: center;
+  border-radius: $border-radius;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  @include set-background($light-color);
+
+  &:hover {
+    background: darken($light-color, $amount: 5);
+  }
+
+  &-primary {
+    @include set-background($primary-color);
+    &:hover {
+      background: lighten($primary-color, 5);
+    }
+  }
+  &-dark {
+    @include set-background($dark-color);
+    &:hover {
+      background: lighten($dark-color, 5);
+    }
+  }
+  &-success {
+    @include set-background($success-color);
+    &:hover {
+      background: lighten($success-color, 5);
+    }
+  }
+  &-danger {
+    @include set-background($danger-color);
+    &:hover {
+      background: lighten($danger-color, 5);
+    }
+  }
+  &-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Tables
+.table {
+  text-align: left;
+
+  th {
+    background: $light-color;
+  }
+
+  th,
+  td {
+    padding: 1rem;
+    padding-right: 2rem;
+  }
+}
+
+// Badges
+.badge {
+  display: inline-block;
+  font-size: 0.9rem;
+  background: $light-color;
+  color: #333;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 40px;
+}
+
+// Line
+.line {
+  display: block;
+  height: 1px;
+  background: #ddd;
+  margin: 1rem 0;
+}
+
+// Dark Overlay
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.8);
+}
