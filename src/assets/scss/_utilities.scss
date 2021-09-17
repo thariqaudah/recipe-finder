@@ -66,7 +66,7 @@
 	display: inline-block;
 	border: none;
 	outline: none;
-	padding: 0.6rem 1.2rem;
+	padding: 0.5rem 1rem;
 	text-align: center;
 	border-radius: $border-radius;
 	font-family: inherit;
@@ -88,6 +88,7 @@
 		@include set-background($primary-color);
 		&:hover {
 			background: lighten($primary-color, 5);
+			color: #fff;
 		}
 	}
 	&-dark {
@@ -153,12 +154,25 @@
 // Badges
 .badge {
 	display: inline-block;
-	font-size: 0.9rem;
+	font-size: 14px;
 	background: $light-color;
 	color: #333;
-	padding: 0.2rem 0.5rem;
-	margin-right: 0.5rem;
+	padding: 0.2rem 0.4rem;
+	margin: 0 0.5rem 0.5rem 0;
 	border-radius: 40px;
+
+	&-primary {
+		@include set-background($primary-color);
+	}
+	&-dark {
+		@include set-background($dark-color);
+	}
+	&-success {
+		@include set-background($success-color);
+	}
+	&-danger {
+		@include set-background($danger-color);
+	}
 }
 
 // Line
