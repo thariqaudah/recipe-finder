@@ -1,24 +1,28 @@
 <template>
-	<div class="container">
-		<div class="recipes" v-if="recipes.length">
-			<div
-				class="bg-white p-1"
-				v-for="recipe in recipes"
-				:key="recipe.recipe.yield"
-			>
-				<div class="img">
-					<img :src="recipe.recipe.image" alt="food image" />
-				</div>
-				<h2 class="my-1">
-					{{ recipe.recipe.label }}
-				</h2>
-				<router-link to="" class="btn btn-dark">Details</router-link>
-			</div>
-		</div>
-		<div v-if="alert">
-			<Alert :text="alert.text" :type="alert.type" />
-		</div>
-	</div>
+  <div class="container">
+    <div class="recipes" v-if="recipes.length">
+      <div
+        class="bg-white p-1"
+        v-for="recipe in recipes"
+        :key="recipe.recipe.yield"
+      >
+        <div class="img">
+          <img :src="recipe.recipe.image" alt="food image" />
+        </div>
+        <h2 class="my-1">
+          {{ recipe.recipe.label }}
+        </h2>
+        <router-link
+          :to="{ name: 'RecipeDetails', params: { id: recipe.recipe.yield } }"
+          class="btn btn-dark"
+          >Details</router-link
+        >
+      </div>
+    </div>
+    <div v-if="alert">
+      <Alert :text="alert.text" :type="alert.type" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,15 +31,15 @@ import { useStore } from 'vuex'
 import Alert from './Alert.vue'
 
 export default {
-	name: 'Recipes',
-	components: { Alert },
-	setup() {
-		const store = useStore()
+  name: 'Recipes',
+  components: { Alert },
+  setup() {
+    const store = useStore()
 
-		const recipes = computed(() => store.state.recipes.recipes)
-		const alert = computed(() => store.state.recipes.alert)
+    const recipes = computed(() => store.state.recipes.recipes)
+    const alert = computed(() => store.state.recipes.alert)
 
-		return { recipes, alert }
-	},
+    return { recipes, alert }
+  },
 }
 </script>
