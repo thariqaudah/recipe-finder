@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{f820:function(t,e,n){"use strict";n.r(e);var c=n("7a23"),o={class:"about container"},a=Object(c["g"])("h1",null,"About",-1),s=Object(c["g"])("p",{class:"my-1"},"Recipe Finder App v.1.0.0",-1),u=[a,s];function b(t,e){return Object(c["t"])(),Object(c["f"])("div",o,u)}const i={};i.render=b;e["default"]=i}}]);
+//# sourceMappingURL=about.c437c6b7.js.map
