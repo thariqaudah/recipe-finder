@@ -3,6 +3,7 @@
 ## About
 
 Frontend application for finding any food recipe with Vue.js 3, Vuex, and Vue Router.
+
 See it live [here](https://thariqaudah.github.io/recipe-finder/).
 
 ## Project setup
